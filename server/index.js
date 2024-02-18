@@ -23,9 +23,9 @@ app.use(express.json());
 
 mongoose.connect("mongodb+srv://bamboocse042:iyz1E6PP1uyOsZe1@bamboo.3kvmdox.mongodb.net/bamboo?retryWrites=true&w=majority");
 
-app.listen(1111, () => {
-    console.log("server started on port 1111");
-});
+// app.listen(1111, () => {
+//     console.log("server started on port 1111");
+// });
 
 app.get("/", (req, res) => {
     res.json("Hello");
