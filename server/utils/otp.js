@@ -12,7 +12,7 @@ const sendOTP = (email, OTP) => {
       // user: process.env.EMAIL_SERVICE_USER,
       // pass: process.env.EMAIL_SERVICE_PASS,
       user: "bamboo.cse042@gmail.com",
-      pass: "xfci deqt pdrb bbvb",
+      pass: "exze ygnf wsom tnag",
     },
   });
 
