@@ -23,9 +23,9 @@ app.use(express.json());
 
 mongoose.connect("mongodb+srv://bamboocse042:iyz1E6PP1uyOsZe1@bamboo.3kvmdox.mongodb.net/bamboo?retryWrites=true&w=majority");
 
-// app.listen(1111, () => {
-//     console.log("server started on port 1111");
-// });
+app.listen(1111, () => {
+    console.log("server started on port 1111");
+});
 
 app.get("/", (req, res) => {
     res.json("Hello");
@@ -39,11 +39,17 @@ app.post("/api/register", async (req,res) => {
     console.log(req);
     try{
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
-        const user = await UserSchema.create({
-            name: req.body.name,
+        const user = await UserSchema.find({
             email: req.body.email,
-            password: hashedPassword,
         });
+        console.log(user);
+        if(!user || user.emailVerified){
+            user = await UserSchema.create({
+                name: req.body.name,
+                email: req.body.email,
+                password: hashedPassword,
+            });
+        }
         res.json({status: "ok"});
     }
     catch(ex){
