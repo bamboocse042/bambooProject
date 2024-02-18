@@ -21,6 +21,10 @@ app.listen(1111, () => {
     console.log("server started on port 1111");
 });
 
+app.get("/", (req, res) => {
+    res.json("Hello");
+})
+
 app.get("/api/test", (req, res) => {
     res.send("Hello world");
 })
