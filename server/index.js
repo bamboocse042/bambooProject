@@ -10,7 +10,13 @@ const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 const { generateOTP, sendOTP } = require("./utils/otp");
  
-app.use(cors());
+app.use(cors(
+    {
+        origin: ["https://bamboo-project-frontend.vercel.app"],
+        methods: ["POST", "GET"],
+        credentials: true
+    }
+));
 app.use(express.json());
 
 
