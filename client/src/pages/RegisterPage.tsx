@@ -14,19 +14,6 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 
-// function Copyright(props: any) {
-//   return (
-//     <Typography variant="body2" color="text.secondary" align="center" {...props}>
-//       {'Copyright © '}
-//       <Link color="inherit" href="https://mui.com/">
-//         Your Website
-//       </Link>{' '}
-//       {new Date().getFullYear()}
-//       {'.'}
-//     </Typography>
-//   );
-// }
-
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
@@ -44,7 +31,7 @@ export default function RegisterPage() {
     event.preventDefault();
     setSubmitClicked(true);
     console.log("hii");
-    const response = await fetch("http://localhost:1111/api/register", {
+    const response = await fetch("https://bamboo-project-api.vercel.app/api/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -58,7 +45,7 @@ export default function RegisterPage() {
     const data = await response.json();
 
     if (data.status === "ok") {
-      const otpResponse = await fetch("http://localhost:1111/api/generateOtp", {
+      const otpResponse = await fetch("https://bamboo-project-api.vercel.app/api/generateOtp", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -79,7 +66,7 @@ export default function RegisterPage() {
   const verifyOTP = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setSubmitClicked(true);
-    const response = await fetch("http://localhost:1111/api/verifyOtp", {
+    const response = await fetch("https://bamboo-project-api.vercel.app/api/verifyOtp", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

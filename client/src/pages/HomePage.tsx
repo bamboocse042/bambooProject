@@ -30,7 +30,7 @@ const HomePage = () => {
     const [searchValue, setSearchValue] = React.useState<string>("");
 
     const verifyToken = async () => {
-        const req = await fetch("http://localhost:1111/api/verifyToken", {
+        const req = await fetch("https://bamboo-project-api.vercel.app/api/verifyToken", {
           method: "GET",
             headers: {
                 "x-access-token" : localStorage.getItem("token")?? "",
@@ -44,7 +44,7 @@ const HomePage = () => {
     }
 
     const fetchAllStocks = async () => {
-      const apiResponse = await fetch("http://localhost:1111/api/fetchAllStocks", {
+      const apiResponse = await fetch("https://bamboo-project-api.vercel.app/api/fetchAllStocks", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -61,7 +61,7 @@ const HomePage = () => {
 
     const fetchsubscribedStocks = async() => {
       try{
-        const apiResponse = await fetch("http://localhost:1111/api/fetchUsersSubscriptions", {
+        const apiResponse = await fetch("https://bamboo-project-api.vercel.app/api/fetchUsersSubscriptions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -82,7 +82,7 @@ const HomePage = () => {
 
     const addStock = async (stockCode: string) => {
       try{
-        const apiResponse = await fetch("http://localhost:1111/api/addStock", {
+        const apiResponse = await fetch("https://bamboo-project-api.vercel.app/api/addStock", {
         method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -107,7 +107,7 @@ const HomePage = () => {
 
     const removeStock = async (stockCode: string) => {
       try{
-        const apiResponse = await fetch("http://localhost:1111/api/removeStock", {
+        const apiResponse = await fetch("https://bamboo-project-api.vercel.app/api/removeStock", {
         method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -130,9 +130,9 @@ const HomePage = () => {
       }
     }
 
-    // React.useEffect(()=>{
-    //     verifyToken();
-    // }, []);
+    React.useEffect(()=>{
+        verifyToken();
+    }, []);
 
     React.useEffect(()=>{
         fetchAllStocks();

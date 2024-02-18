@@ -41,7 +41,7 @@ const loginUser = async (event: React.FormEvent<HTMLFormElement>)=>{
   event.preventDefault();
   setSubmitClicked(true);
   console.log("hii");
-  const response = await fetch("http://localhost:1111/api/login", {
+  const response = await fetch("https://bamboo-project-api.vercel.app/api/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
