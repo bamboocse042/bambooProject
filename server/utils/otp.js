@@ -28,11 +28,12 @@ const sendOTP = (email, OTP) => {
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      console.log(error);
+      console.log("error => ",error);
     } else {
       console.log("Email sent: " + info.response);
     }
   });
+  console.log("otp send call end here");
 };
 
 module.exports = { generateOTP, sendOTP };
