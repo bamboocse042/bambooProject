@@ -229,3 +229,5 @@ app.post("/api/fetchAllStocks", async (req, res) => {
     }
     console.log(req);
 });
+
+module.exports = app;
